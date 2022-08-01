@@ -1,0 +1,22 @@
+require("dotenv").config({ path: "./config/.env" });
+require("./config/db");
+const express = require("express");
+const app = express();
+const authRoute = require("./routes/auth.route");
+
+//middleware
+app.use(express.json());
+
+const cors = require("cors");
+const corsOptions = {
+  origin: "http://localhost:3000",
+};
+app.use(cors(corsOptions));
+
+//routes
+app.use("/api/v1/auth", authRoute);
+
+// server
+app.listen(process.env.PORT, () => {
+  console.log(`Server ${process.env.PORT} is running !`);
+});
