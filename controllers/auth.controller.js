@@ -43,7 +43,7 @@ module.exports.signIn = async (req, res) => {
     const user = await UserModel.findOne({ email }).exec();
     if (!user) {
       return res.status(401).send({
-        error: "aaa Email ou mot de passe incorrect !",
+        error: "a Email ou mot de passe incorrect !",
       });
     }
 
@@ -59,4 +59,9 @@ module.exports.signIn = async (req, res) => {
   } catch (error) {
     console.log(error.message);
   }
+};
+
+module.exports.logOut = (req, res) => {
+  res.cookie("jwt", "", { maxAge: 1 });
+  res.redirect("/");
 };
