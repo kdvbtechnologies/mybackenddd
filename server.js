@@ -3,6 +3,8 @@ require("./config/db");
 const express = require("express");
 const app = express();
 const authRoute = require("./routes/auth.route");
+const cookieParser = require("cookie-parser");
+app.use(cookieParser());
 
 //middleware
 app.use(express.json());
