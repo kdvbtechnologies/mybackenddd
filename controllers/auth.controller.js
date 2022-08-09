@@ -54,7 +54,11 @@ module.exports.signIn = async (req, res) => {
         .send({ error: "bbb Email ou mot de passe incorrect !" });
 
     const token = createToken(user);
-    res.cookie("jwt", token, { httpOnly: true, maxAge, secure: true });
+    res.cookie("jwt", token, {
+      httpOnly: true,
+      maxAge,
+      secure: true,
+    });
     res.status(200).json({ message: "Vous etes connecté !" });
   } catch (error) {
     console.log(error.message);

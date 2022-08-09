@@ -9,7 +9,7 @@ app.use(express.json());
 
 const cors = require("cors");
 const corsOptions = {
-  origin: ["http://localhost:3000", "https://jamelfase.com"],
+  origin: ["https://jamelfase.com", "http://localhost:3000"],
   credentials: true,
   allowedHeaders: ["sessionId", "Content-Type"],
   exposedHeaders: ["sessionId"],
