@@ -58,6 +58,8 @@ module.exports.signIn = async (req, res) => {
       httpOnly: true,
       maxAge,
       secure: true,
+      domain: "https://api-adoony.herokuapp.com/api/v1/auth/signin",
+      path: "/",
     });
     res.status(200).json({ message: "Vous etes connecté !" });
   } catch (error) {
