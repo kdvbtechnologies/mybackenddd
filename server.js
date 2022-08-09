@@ -1,11 +1,8 @@
 require("dotenv").config({ path: "./config/.env" });
 require("./config/db");
-const cookieParser = require("cookie-parser");
 const express = require("express");
 const app = express();
 const authRoute = require("./routes/auth.route");
-
-app.use(cookieParser());
 
 //middleware
 app.use(express.json());
