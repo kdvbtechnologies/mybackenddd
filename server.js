@@ -3,6 +3,8 @@ require("./config/db");
 const express = require("express");
 const app = express();
 const authRoute = require("./routes/auth.route");
+const postRoute = require("./routes/post.route");
+const userRoute = require("./routes/user.route");
 const cookieParser = require("cookie-parser");
 app.use(cookieParser());
 
@@ -21,7 +23,9 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 //routes
-app.use("/api/v1/auth", authRoute);
+app.use("/api/auth", authRoute);
+app.use("/api/post", postRoute);
+app.use("/api/user", userRoute);
 
 // server
 app.listen(process.env.PORT, () => {

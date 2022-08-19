@@ -54,12 +54,12 @@ module.exports.signIn = async (req, res) => {
         .send({ error: "bbb Email ou mot de passe incorrect !" });
 
     const token = createToken(user);
-    /*res.cookie("nameOfCookie", "cookieValue", {
+    res.cookie("nameOfCookie", "cookieValue", {
       maxAge: 60 * 60 * 1000,
       httpOnly: true,
       secure: true,
       sameSite: true,
-    });*/
+    });
     res.cookie("jwt", token, { httpOnly: true, maxAge, secure: true });
     res.status(200).json({ message: "Vous etes connecté !" });
   } catch (error) {
@@ -67,7 +67,7 @@ module.exports.signIn = async (req, res) => {
   }
 };
 
-module.exports.logOut = (req, res) => {
+module.exports.logOut = (res) => {
   res.cookie("jwt", "", { maxAge: 1 });
   res.redirect("/");
 };
