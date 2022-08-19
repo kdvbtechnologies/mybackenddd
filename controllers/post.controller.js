@@ -9,3 +9,12 @@ module.exports.addPost = async (req, res) => {
     return res.status(500).json(err);
   }
 };
+
+module.exports.getAllPost = async (req, res) => {
+  try {
+    const posts = await postModel.find().select();
+    res.status(200).json(posts);
+  } catch (err) {
+    return res.status(500).json(err);
+  }
+};
