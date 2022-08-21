@@ -59,9 +59,10 @@ module.exports.signIn = async (req, res) => {
       sameSite: true,
     });
     res.cookie("jwt", token, { httpOnly: true, maxAge, secure: true });
-    res
-      .status(200)
-      .json({ message: "Vous etes connecté !", userid: `${token}` });
+    res.status(200).json({
+      message: "Vous etes connecté !",
+      tokenUserJamelfase: `${token}`,
+    });
   } catch (error) {
     console.log(error.message);
   }
