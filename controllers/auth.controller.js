@@ -61,7 +61,7 @@ module.exports.signIn = async (req, res) => {
     res.cookie("jwt", token, { httpOnly: true, maxAge, secure: true });
     res.status(200).json({
       message: "Vous etes connecté !",
-      tokenUserJamelfase: `${token}`,
+      token: `${token}`,
     });
   } catch (error) {
     console.log(error.message);
