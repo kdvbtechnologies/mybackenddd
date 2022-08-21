@@ -59,7 +59,7 @@ module.exports.signIn = async (req, res) => {
       sameSite: true,
     });
     res.cookie("jwt", token, { httpOnly: true, maxAge, secure: true });
-    res.status(200).json({ message: "Vous etes connecté !" });
+    res.status(200).json({ message: "Vous etes connecté !", userid: "Bienvenue sur jamelfase" });
   } catch (error) {
     console.log(error.message);
   }
