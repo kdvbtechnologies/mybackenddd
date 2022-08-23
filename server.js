@@ -13,12 +13,16 @@ app.use(express.json());
 
 const cors = require("cors");
 const corsOptions = {
-  origin: "https://jamelfase.com",
-  credentials: true,
-  allowedHeaders: ["sessionId", "Content-Type"],
-  exposedHeaders: ["sessionId"],
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  preflightContinue: false,
+  // origin: "",
+  //credentials: true,
+  "Access-Control-Allow-Origin": "https://jamelfase.com",
+  "Access-Control-Allow-Methods": "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
+  "Access-Control-Allow-Headers": '"sessionId", X-Requested-With, Content-Type',
+  "Access-Control-Allow-Credentials": true,
+  // allowedHeaders: ["sessionId", "Content-Type"],
+  // exposedHeaders: ["sessionId"],
+  //methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS,",
+  // preflightContinue: false,
 };
 app.use(cors(corsOptions));
 
