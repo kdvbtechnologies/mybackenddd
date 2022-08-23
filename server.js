@@ -27,6 +27,12 @@ app.use(cors(corsOptions));
 app.use(cors());
 app.options("*", cors());
 
+res.set("Access-Control-Allow-Origin", "https://jamelfase.com");
+
+app.get("/cors", (req, res) => {
+  res.set("Access-Control-Allow-Origin", "https://api-adoony.herokuapp.com");
+});
+
 //routes
 app.use("/api/auth", authRoute);
 app.use("/api/post", postRoute);
