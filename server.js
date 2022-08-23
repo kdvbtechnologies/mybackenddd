@@ -12,7 +12,7 @@ app.use(cookieParser());
 app.use(express.json());
 
 const cors = require("cors");
-/*
+
 const corsOptions = {
   origin: "https://jamelfase.com",
   credentials: true,
@@ -22,16 +22,6 @@ const corsOptions = {
   preflightContinue: false,
 };
 app.use(cors(corsOptions));
-*/
-
-app.use(cors());
-app.options("*", cors());
-
-res.set("Access-Control-Allow-Origin", "https://jamelfase.com");
-
-app.get("/cors", (req, res) => {
-  res.set("Access-Control-Allow-Origin", "https://jamelfase.com");
-});
 
 //routes
 app.use("/api/auth", authRoute);
