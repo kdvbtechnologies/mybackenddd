@@ -14,11 +14,11 @@ app.use(express.json());
 const cors = require("cors");
 const corsOptions = {
   origin: "https://jamelfase.com",
-  credentials: true,
-  allowedHeaders: ["sessionId", "Content-Type"],
-  exposedHeaders: ["sessionId"],
+  //credentials: true,
+  //allowedHeaders: ["sessionId", "Content-Type"],
+  // exposedHeaders: ["sessionId"],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  preflightContinue: false,
+  //preflightContinue: false,
 };
 app.use(cors(corsOptions));
 
