@@ -11,8 +11,8 @@ app.use(cookieParser());
 //middleware
 app.use(express.json());
 
+/*
 const cors = require("cors");
-
 const corsOptions = {
   origin: "https://jamelfase.com",
   credentials: true,
@@ -22,6 +22,7 @@ const corsOptions = {
   preflightContinue: false,
 };
 app.use(cors(corsOptions));
+*/
 
 //routes
 app.use("/api/auth", authRoute);
