@@ -30,7 +30,7 @@ app.options("*", cors());
 res.set("Access-Control-Allow-Origin", "https://jamelfase.com");
 
 app.get("/cors", (req, res) => {
-  res.set("Access-Control-Allow-Origin", "https://api-adoony.herokuapp.com");
+  res.set("Access-Control-Allow-Origin", "https://jamelfase.com");
 });
 
 //routes
