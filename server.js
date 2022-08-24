@@ -24,6 +24,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 */
 
+/*
 app.use(function (req, res, next) {
   //
   res.setHeader("Access-Control-Allow-Origin", "https://jamelfase.com");
@@ -40,6 +41,12 @@ app.use(function (req, res, next) {
   //
   res.setHeader("Access-Control-Allow-Credentials", true);
   //
+  next();
+});*/
+
+// CORS (Cross-Origin Resource Sharing) headers to support Cross-site HTTP requests
+app.all("*", (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://jamelfase.com");
   next();
 });
 
