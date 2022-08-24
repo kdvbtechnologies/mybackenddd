@@ -11,7 +11,6 @@ app.use(cookieParser());
 //middleware
 app.use(express.json());
 
-/*
 const cors = require("cors");
 const corsOptions = {
   origin: "https://jamelfase.com",
@@ -22,7 +21,6 @@ const corsOptions = {
   preflightContinue: false,
 };
 app.use(cors(corsOptions));
-*/
 
 /*
 app.use(function (req, res, next) {
@@ -44,11 +42,13 @@ app.use(function (req, res, next) {
   next();
 });*/
 
+/*
 // CORS (Cross-Origin Resource Sharing) headers to support Cross-site HTTP requests
 app.all("*", (req, res, next) => {
   res.header("Access-Control-Allow-Origin", "https://jamelfase.com");
   next();
 });
+*/
 
 //routes
 app.use("/api/auth", authRoute);
