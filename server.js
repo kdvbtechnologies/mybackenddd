@@ -11,6 +11,7 @@ app.use(cookieParser());
 //middleware
 app.use(express.json());
 
+/*
 const cors = require("cors");
 const corsOptions = {
   origin: "https://jamelfase.com",
@@ -21,8 +22,8 @@ const corsOptions = {
   preflightContinue: false,
 };
 app.use(cors(corsOptions));
+*/
 
-/*
 app.use(function (req, res, next) {
   //
   res.setHeader("Access-Control-Allow-Origin", "https://jamelfase.com");
@@ -33,15 +34,14 @@ app.use(function (req, res, next) {
   );
   //
   res.setHeader(
-    "Access-Control-Allow-Headers",
+    "Access-Control-Expose-Headers",
     "X-Requested-With, content-type"
   );
   //
   res.setHeader("Access-Control-Allow-Credentials", true);
-
   //
   next();
-});*/
+});
 
 //routes
 app.use("/api/auth", authRoute);
