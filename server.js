@@ -11,7 +11,6 @@ app.use(cookieParser());
 //middleware
 app.use(express.json());
 
-/*
 const cors = require("cors");
 const corsOptions = {
   origin: "https://jamelfase.com",
@@ -22,7 +21,6 @@ const corsOptions = {
   preflightContinue: false,
 };
 app.use(cors(corsOptions));
-*/
 
 /*
 app.use(function (req, res, next) {
@@ -52,6 +50,7 @@ app.all("*", (req, res, next) => {
 });
 */
 
+/*
 app.use((req, res, next) => {
   const corsWhitelist = [
     "https://jamelfase.com",
@@ -67,7 +66,7 @@ app.use((req, res, next) => {
   }
 
   next();
-});
+});*/
 
 //routes
 app.use("/api/auth", authRoute);
