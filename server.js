@@ -11,7 +11,6 @@ app.use(cookieParser());
 //middleware
 app.use(express.json());
 
-/*
 const cors = require("cors");
 const corsOptions = {
   origin: "https://jamelfase.com",
@@ -22,8 +21,8 @@ const corsOptions = {
   preflightContinue: false,
 };
 app.use(cors(corsOptions));
-*/
 
+/*
 app.use(function (req, res, next) {
   //
   res.setHeader("Access-Control-Allow-Origin", "https://jamelfase.com");
@@ -42,7 +41,7 @@ app.use(function (req, res, next) {
 
   //
   next();
-});
+});*/
 
 //routes
 app.use("/api/auth", authRoute);
