@@ -11,6 +11,7 @@ app.use(cookieParser());
 //middleware
 app.use(express.json());
 
+/*
 const cors = require("cors");
 const corsOptions = {
   origin: "https://jamelfase.com",
@@ -21,52 +22,10 @@ const corsOptions = {
   preflightContinue: false,
 };
 app.use(cors(corsOptions));
-
-/*
-app.use(function (req, res, next) {
-  //
-  res.setHeader("Access-Control-Allow-Origin", "https://jamelfase.com");
-  //
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-  );
-  //
-  res.setHeader(
-    "Access-Control-Expose-Headers",
-    "X-Requested-With, content-type"
-  );
-  //
-  res.setHeader("Access-Control-Allow-Credentials", true);
-  //
-  next();
-});*/
-
-/*
-// CORS (Cross-Origin Resource Sharing) headers to support Cross-site HTTP requests
-app.all("*", (req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://jamelfase.com");
-  next();
-});
 */
 
-/*
-app.use((req, res, next) => {
-  const corsWhitelist = [
-    "https://jamelfase.com",
-    //'https://domain2.example',
-    //'https://domain3.example'
-  ];
-  if (corsWhitelist.indexOf(req.headers.origin) !== -1) {
-    res.header("Access-Control-Allow-Origin", req.headers.origin);
-    res.header(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Accept"
-    );
-  }
-
-  next();
-});*/
+const cors = require("cors");
+app.use(cors());
 
 //routes
 app.use("/api/auth", authRoute);
