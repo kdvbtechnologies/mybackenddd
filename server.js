@@ -26,15 +26,16 @@ app.use(cors(corsOptions));
 
 const cors = require("cors");
 
-let corsOptions = {
+const corsOptions = {
   origin: ["https://jamelfase.com"],
+  optionsSuccessStatus: 200,
 };
-app.use(cors(corsOptions));
+//app.use(cors(corsOptions));
 
 //routes
 app.use("/api/auth", authRoute);
 app.use("/api/post", postRoute);
-app.use("/api/user", userRoute);
+app.use("/api/user", userRoute, cors(corsOptions));
 
 // server
 app.listen(process.env.PORT, () => {
