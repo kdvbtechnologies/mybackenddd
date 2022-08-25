@@ -25,7 +25,11 @@ app.use(cors(corsOptions));
 */
 
 const cors = require("cors");
-app.use(cors());
+
+let corsOptions = {
+  origin: ["https://jamelfase.com"],
+};
+app.use(cors(corsOptions));
 
 //routes
 app.use("/api/auth", authRoute);
