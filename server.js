@@ -5,6 +5,7 @@ const app = express();
 const authRoute = require("./routes/auth.route");
 const postRoute = require("./routes/post.route");
 const userRoute = require("./routes/user.route");
+const { checkUser, requireAuth } = require("./middleware/auth.middleware");
 const cookieParser = require("cookie-parser");
 app.use(cookieParser());
 
@@ -19,20 +20,21 @@ const corsOptions = {
   exposedHeaders: ["sessionId"],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   preflightContinue: false,
+  /*
+  Access-Control-Allow-Origin: "https://jamelfase.com",
+  */
 };
 app.use(cors(corsOptions));
 
-/*
-const cors = require("cors");
+// jwt
+app.get("*", checkUser);
+/* cette route get de /jwtid declenche la middleware requireAuth et renvoie le user_id (l'Id de 
+l'utilisateur) */
+app.get("/jwtid", requireAuth, (req, res) => {
+  res.status(200).send(res.locals.user._id);
+});
 
-const corsOptions = {
-  origin: ["https://jamelfase.com"],
-  optionsSuccessStatus: 200,
-};
-app.use(cors(corsOptions));
-*/
-
-//routes
+// routes
 app.use("/api/auth", authRoute);
 app.use("/api/post", postRoute);
 app.use("/api/user", userRoute);
