@@ -19,8 +19,4 @@ module.exports.getAllPost = async (req, res) => {
     console.log(err);
   }
   
-  if (!posts) {
-    return res.status(404).json({ message: "No posts found" });
-  }
-  return res.status(200).json({ posts });
 };
