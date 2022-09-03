@@ -11,10 +11,16 @@ module.exports.addPost = async (req, res) => {
 };
 
 module.exports.getAllPost = async (req, res) => {
+	let posts;
   try {
-    const posts = await postModel.find().select();
+    posts = await postModel.find().select();
     res.status(200).json(posts);
   } catch (err) {
-    return res.status(500).json(err);
+    console.log(err);
   }
+  
+  if (!posts) {
+    return res.status(404).json({ message: "No posts found" });
+  }
+  return res.status(200).json({ posts });
 };

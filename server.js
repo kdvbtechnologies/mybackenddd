@@ -28,8 +28,7 @@ app.use(cors(corsOptions));
 
 // jwt
 app.get("*", checkUser);
-/* cette route get de /jwtid declenche la middleware requireAuth et renvoie le user_id (l'Id de 
-l'utilisateur) */
+/* cette route get de /jwtid et0 */
 app.get("/jwtid", requireAuth, (req, res) => {
   res.status(200).send(res.locals.user._id);
 });
