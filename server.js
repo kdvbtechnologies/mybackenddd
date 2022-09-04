@@ -1,23 +1,22 @@
 require("dotenv").config({ path: "./config/.env" });
 require("./config/db");
 const express = require("express");
+const app = express();
 
 const authRoute = require("./routes/auth.route");
 const postRoute = require("./routes/post.route");
 const userRoute = require("./routes/user.route");
 const { checkUser, requireAuth } = require("./middleware/auth.middleware");
-const cors = require("cors");
-const cookieParser = require("cookie-parser");
-const app = express();
 
+const cookieParser = require("cookie-parser");
 app.use(cookieParser());
 
 //middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
-var corsOptions = {
+const cors = require("cors");
+const corsOptions = {
   origin: "https://jamelfase.com",
   /*credentials: true,
   allowedHeaders: ["sessionId", "Content-Type"],
