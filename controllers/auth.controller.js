@@ -60,6 +60,8 @@ module.exports.signIn = async (req, res) => {
     });
     res.cookie("jwt", token, { httpOnly: true, maxAge, secure: true });
     res.status(200).json({
+      id: user._id,
+      username: user.username,
       message: "Vous etes connecté !",
       token: `${token}`,
     });
