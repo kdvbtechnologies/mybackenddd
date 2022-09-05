@@ -37,11 +37,9 @@ module.exports.signUp = async (req, res) => {
 
 module.exports.signIn = async (req, res) => {
   try {
-    res.header("Access-Control-Allow-Origin", "*");
     const { email, password } = req.body;
     const user = await UserModel.findOne({ email }).exec();
     if (!user) {
-      res.header("Access-Control-Allow-Origin", "*");
       return res.status(401).send({
         error: "a Email ou mot de passe incorrect !",
       });
@@ -60,7 +58,6 @@ module.exports.signIn = async (req, res) => {
       secure: true,
       sameSite: true,
     });
-    res.header("Access-Control-Allow-Origin", "*");
     res.cookie("jwt", token, { httpOnly: true, maxAge, secure: true });
     res.status(200).json({
       id: user._id,
@@ -70,7 +67,6 @@ module.exports.signIn = async (req, res) => {
       token: `${token}`,
     });
   } catch (error) {
-    res.header("Access-Control-Allow-Origin", "*");
     console.log(error.message);
   }
 };
