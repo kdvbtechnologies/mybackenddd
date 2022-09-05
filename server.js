@@ -17,7 +17,9 @@ app.use(express.urlencoded({ extended: true }));
 
 const cors = require("cors");
 const corsOptions = {
-  origin: "https://jamelfase.com",
+  //origin: "https://jamelfase.com",
+  "Access-Control-Allow-Origin": "https://jamelfase.com",
+  Vary: "Origin",
   /*credentials: true,
   allowedHeaders: ["sessionId", "Content-Type"],
   exposedHeaders: ["sessionId"],
