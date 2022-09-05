@@ -11,12 +11,11 @@ module.exports.addPost = async (req, res) => {
 };
 
 module.exports.getAllPost = async (req, res) => {
-	let posts;
+  let posts;
   try {
     posts = await postModel.find().select();
     res.status(200).json(posts);
   } catch (err) {
     console.log(err);
   }
-  
 };
