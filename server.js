@@ -20,6 +20,8 @@ const corsOptions = {
   //origin: "https://jamelfase.com",
   "Access-Control-Allow-Origin": "https://jamelfase.com",
   Vary: "Origin",
+  "Access-Control-Expose-Headers": "sessionId",
+  "Access-Control-Allow-Credentials": true,
   /*credentials: true,
   allowedHeaders: ["sessionId", "Content-Type"],
   exposedHeaders: ["sessionId"],
