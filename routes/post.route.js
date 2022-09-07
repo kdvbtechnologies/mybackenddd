@@ -1,9 +1,18 @@
 const express = require("express");
-const { addPost, getAllPost } = require("../controllers/post.controller");
+const multer = require("multer");
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
+
+const {
+  addPost,
+  getAllPost,
+  postImage,
+} = require("../controllers/post.controller");
 
 const postRouter = express.Router();
 
 postRouter.post("/add", addPost);
 postRouter.get("/", getAllPost);
+postRouter.post("/upload", upload.single("image"), postImage);
 
 module.exports = postRouter;
