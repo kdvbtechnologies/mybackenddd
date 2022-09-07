@@ -22,7 +22,7 @@ module.exports.getAllPost = async (req, res) => {
   }
 };
 
-// post image
+/* post image
 cloudinary.config({
   cloud_name: "rasivyy",
   api_key: "599176842647747",
@@ -38,9 +38,13 @@ const bufferToStream = (buffer) => {
     },
   });
   return readable;
-};
+};*/
 
 module.exports.postImage = async (req, res) => {
+  console.log(req.files);
+  res.send("Vos photos ont été uploadé !");
+
+  /*
   const data = await sharp(req.file.buffer).webp({ quality: 20 }).toBuffer();
   const stream = cloudinary.uploader.upload_stream(
     { folder: "DEVVV" },
@@ -49,5 +53,5 @@ module.exports.postImage = async (req, res) => {
       return res.json({ URL: result.secure_url });
     }
   );
-  bufferToStream(data).pipe(stream);
+  bufferToStream(data).pipe(stream);*/
 };
