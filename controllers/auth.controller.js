@@ -23,13 +23,14 @@ module.exports.signUp = async (req, res) => {
   const hashedPassword = bcrypt.hashSync(password);
 
   try {
-    const user = await UserModel.insertMany({
+    const user = await UserModel.create({
       username,
       email,
       password: hashedPassword,
     });
     res.status(200).json({ message: user._id, email: email });
   } catch (err) {
+    console.log(err);
     const errors = signUpErrors(err);
     res.status(400).send({ errors });
   }
