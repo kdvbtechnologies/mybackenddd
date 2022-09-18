@@ -4,7 +4,7 @@ const PostSchema = new mongoose.Schema(
   {
     userId: {
       type: String,
-      required: true,
+      //required: true,
     },
     isComplete: {
       type: Boolean,
@@ -12,18 +12,19 @@ const PostSchema = new mongoose.Schema(
     desc: {
       type: String,
       max: 500,
-      required: true,
+      //required: true,
     },
     username: {
       type: String,
-      required: true,
+      //required: true,
       min: 3,
       max: 20,
       unique: true,
     },
-    img: {
+    imageUrl: {
       type: String,
     },
+
     likes: {
       type: Array,
       default: [],
