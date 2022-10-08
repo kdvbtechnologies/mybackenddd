@@ -38,7 +38,7 @@ app.get("/jwtid", requireAuth, (req, res) => {
 app.use("/api/auth", authRoute);
 app.use("/api/post", postRoute);
 app.use("/api/user", userRoute);
-app.use("/omisify/api/user", postRouteOmisify);
+app.use("/omisify/api/post", postRouteOmisify);
 
 // server
 app.listen(process.env.PORT, () => {
