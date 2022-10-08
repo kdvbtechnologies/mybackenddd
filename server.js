@@ -6,6 +6,7 @@ const app = express();
 const authRoute = require("./routes/auth.route");
 const postRoute = require("./routes/post.route");
 const userRoute = require("./routes/user.route");
+const postRouteOmisify = require("./routes/post.route.omisify");
 const { checkUser, requireAuth } = require("./middleware/auth.middleware");
 
 const cookieParser = require("cookie-parser");
@@ -17,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const cors = require("cors");
 const corsOptions = {
-  origin: "https://jamelfase.com",
+  origin: ["https://jamelfase.com", "https://omisify.com"],
   credentials: true,
   allowedHeaders: ["sessionId", "Content-Type"],
   exposedHeaders: ["sessionId"],
@@ -37,6 +38,7 @@ app.get("/jwtid", requireAuth, (req, res) => {
 app.use("/api/auth", authRoute);
 app.use("/api/post", postRoute);
 app.use("/api/user", userRoute);
+app.use("/omisify/api/user", postRouteOmisify);
 
 // server
 app.listen(process.env.PORT, () => {
